@@ -17,6 +17,7 @@ from services.datasets import datasets_get
 from services.models import train_model, list_trained_models
 from services.bridges import add_new_bridge, bridges_get
 from config import BACKEND_URL
+from services.observing import observe_device_on_bridge
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 
@@ -104,6 +105,12 @@ def install_model():
     """
     install_model_to_device(configuration)
     
-    
+@app.command()
+def observe_model():
+    """
+    Observe a model.
+    """
+    observe_device_on_bridge(configuration)
+
 if __name__ == "__main__":
     app()
