@@ -41,8 +41,9 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     body = BridgeCreate(
-        ip_address="ip_address_example",
+        address="address_example",
         name="name_example",
+        https=True,
     )
     try:
         # Add Bridge

@@ -38,21 +38,28 @@ class BridgeCreate(
 
     class MetaOapg:
         required = {
-            "ip_address",
+            "address",
+            "https",
         }
         
         class properties:
-            ip_address = schemas.StrSchema
+            address = schemas.StrSchema
+            https = schemas.BoolSchema
             name = schemas.StrSchema
             __annotations__ = {
-                "ip_address": ip_address,
+                "address": address,
+                "https": https,
                 "name": name,
             }
     
-    ip_address: MetaOapg.properties.ip_address
+    address: MetaOapg.properties.address
+    https: MetaOapg.properties.https
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ip_address"]) -> MetaOapg.properties.ip_address: ...
+    def __getitem__(self, name: typing_extensions.Literal["address"]) -> MetaOapg.properties.address: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["https"]) -> MetaOapg.properties.https: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
@@ -60,13 +67,16 @@ class BridgeCreate(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["ip_address", "name", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["address", "https", "name", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["ip_address"]) -> MetaOapg.properties.ip_address: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["address"]) -> MetaOapg.properties.address: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["https"]) -> MetaOapg.properties.https: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.properties.name, schemas.Unset]: ...
@@ -74,14 +84,15 @@ class BridgeCreate(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["ip_address", "name", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["address", "https", "name", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
-        ip_address: typing.Union[MetaOapg.properties.ip_address, str, ],
+        address: typing.Union[MetaOapg.properties.address, str, ],
+        https: typing.Union[MetaOapg.properties.https, bool, ],
         name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -89,7 +100,8 @@ class BridgeCreate(
         return super().__new__(
             cls,
             *_args,
-            ip_address=ip_address,
+            address=address,
+            https=https,
             name=name,
             _configuration=_configuration,
             **kwargs,

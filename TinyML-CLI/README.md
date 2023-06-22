@@ -158,8 +158,9 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = bridges_api.BridgesApi(api_client)
     bridge_create = BridgeCreate(
-        ip_address="ip_address_example",
+        address="address_example",
         name="name_example",
+        https=True,
     ) # BridgeCreate | 
 
     try:
