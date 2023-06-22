@@ -1,3 +1,4 @@
+import os
 import time
 from typing import Annotated, Optional
 
@@ -13,10 +14,12 @@ from services.compiling import compile_model, list_compiled_models
 from services.devices import devices_get
 from services.datasets import datasets_get
 from services.models import train_model, list_trained_models
+from services.bridges import bridges_get
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
+BACKEND_URL = os.getenv("BACKEND_URL")
 configuration = openapi_client.Configuration(
-    host = "https://tiny.marenk.fi/api/" #backend URL
+    host = BACKEND_URL
 )
 
 app = typer.Typer(help="CLI for TinyMLaaS.")
@@ -77,6 +80,13 @@ def compiled_models():
     List compiled models.
     """
     list_compiled_models(configuration)
+    
+@app.command()
+def list_bridges():
+    """
+    List registered bridges.
+    """
+    bridges_get(configuration)
     
     
 if __name__ == "__main__":

@@ -12,7 +12,7 @@ def datasets_get(configuration):
         try:
             # List registered devices
             api_response = api_instance.get_datasets_datasets_get()
-            print(api_response)
+            #print(api_response)
             data = api_response.response.data
             data_json = json.loads(data)
             data_dataframe = json_normalize(data_json)
