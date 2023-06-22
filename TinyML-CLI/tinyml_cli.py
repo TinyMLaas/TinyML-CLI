@@ -10,6 +10,7 @@ from openapi_client.model.bridge import Bridge
 from openapi_client.model.bridge_create import BridgeCreate
 from openapi_client.model.http_validation_error import HTTPValidationError
 from openapi_client.model.loss_functions import LossFunctions
+from services.compiled_models import install_model_to_device
 from services.compiling import compile_model, list_compiled_models
 from services.devices import devices_get
 from services.datasets import datasets_get
@@ -95,6 +96,13 @@ def add_bridge():
     Add a bridge.
     """
     add_new_bridge(configuration)
+    
+@app.command()
+def install_model():
+    """
+    Install a model.
+    """
+    install_model_to_device(configuration)
     
     
 if __name__ == "__main__":

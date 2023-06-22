@@ -6,7 +6,6 @@ from openapi_client.apis.tags import compiled_models_api
 from openapi_client.model.compiled_model import CompiledModel
 from openapi_client.model.http_validation_error import HTTPValidationError
 from rich import print
-from pprint import pprint
 
 def compile_model(configuration, model_id):
     with openapi_client.ApiClient(configuration) as api_client:
