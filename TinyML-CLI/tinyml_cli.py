@@ -14,10 +14,11 @@ from services.compiling import compile_model, list_compiled_models
 from services.devices import devices_get
 from services.datasets import datasets_get
 from services.models import train_model, list_trained_models
-from services.bridges import bridges_get
+from services.bridges import add_new_bridge, bridges_get
+from config import BACKEND_URL
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-BACKEND_URL = os.getenv("BACKEND_URL")
+
 configuration = openapi_client.Configuration(
     host = BACKEND_URL
 )
@@ -87,6 +88,13 @@ def list_bridges():
     List registered bridges.
     """
     bridges_get(configuration)
+    
+@app.command()
+def add_bridge():
+    """
+    Add a bridge.
+    """
+    add_new_bridge(configuration)
     
     
 if __name__ == "__main__":
