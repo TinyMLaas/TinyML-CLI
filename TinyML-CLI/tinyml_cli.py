@@ -16,7 +16,7 @@ from services.models import train_model, list_trained_models
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost:8000" #backend URL
+    host = "https://tiny.marenk.fi/api/" #backend URL
 )
 
 app = typer.Typer(help="CLI for TinyMLaaS.")
@@ -44,12 +44,12 @@ def list_models():
     
 @app.command()
 #def train_compile(name: Annotated[str, typer.Argument()]):
-def train(dataset_id: int):
+def train(dataset_id: int, description: str):
     """
     Train a model.
     """
 
-    id = 1
+    #id = 1
     
     # Alla olevat kovakoodattu train_model -funktioon, myöhemmin vaihtaa ottamaan train-funktion argumentteina
     # query_params = {'lossfunc': LossFunctions("Categorical crossentropy"),}
@@ -62,7 +62,7 @@ def train(dataset_id: int):
     # }
     # description="description_example"
     
-    train_model(configuration, id)
+    train_model(configuration, dataset_id=dataset_id, description=description)
     
 @app.command()
 def compile(model_id: int):

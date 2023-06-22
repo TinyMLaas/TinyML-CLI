@@ -16,7 +16,7 @@ def devices_get(configuration):
             data_json = json.loads(data)
             data_dataframe = json_normalize(data_json)
             #print(api_response.response.data)
-            print(":radio:")
+            #print(":radio:")
             print("[green]Registered devices:[/green]")
             print(data_dataframe)
             

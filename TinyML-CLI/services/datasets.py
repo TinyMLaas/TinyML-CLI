@@ -16,7 +16,7 @@ def datasets_get(configuration):
             data_json = json.loads(data)
             data_dataframe = json_normalize(data_json)
             #print(api_response.response.data)
-            print(":floppy_disk:")
+            #print(":floppy_disk:")
             print("[green]Existing datasets:[/green]:")
             print(data_dataframe)
             
