@@ -5,6 +5,7 @@ import openapi_client
 from openapi_client.apis.tags import bridges_api
 from openapi_client.model.bridge import Bridge
 from pprint import pprint
+from rich import print
 
 from openapi_client.model.bridge_create import BridgeCreate
 # Defining the host is optional and defaults to http://localhost

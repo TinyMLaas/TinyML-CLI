@@ -3,6 +3,7 @@ from openapi_client.apis.tags import observing_api
 from openapi_client.model.http_validation_error import HTTPValidationError
 from openapi_client.model.observation import Observation
 from pprint import pprint
+from rich import print
 
 
 def observe_device_on_bridge(configuration):
