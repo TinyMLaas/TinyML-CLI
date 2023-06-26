@@ -20,7 +20,8 @@ def observe_device_on_bridge(configuration):
             'device_id': 5,
         }
         try:
-            for i in range(0,10):
+            print("Image is target:             Image is not target:")
+            for i in range(0,2):
                 time.sleep(0.5)
                 
                 # Observe Device On Bridge
@@ -31,7 +32,14 @@ def observe_device_on_bridge(configuration):
                 data = api_response.response.data
                 data_json = json.loads(data)
                 data_dataframe = json_normalize(data_json)
-                print(data_dataframe)
-                #pprint(api_response.response.data)
+                #Print the whole dataframe:
+                #print(data_dataframe)
+
+                #Print predictions only:
+                val = data_dataframe['observation_value.1'].values[0]
+                val2 = data_dataframe['observation_value.0'].values[0]
+                val_formatted = str(val)
+                val2_formatted = str(val2)
+                print(f'[green]{val_formatted}[/]                          [red]{val2_formatted}[/]')
         except openapi_client.ApiException as e:
             print("Exception when calling ObservingApi->observe_device_on_bridge_observations_bridges_bridge_id_devices_device_id_get: %s\n" % e)
