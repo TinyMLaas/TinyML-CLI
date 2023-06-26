@@ -11,11 +11,11 @@ from openapi_client.model.bridge_create import BridgeCreate
 from openapi_client.model.http_validation_error import HTTPValidationError
 from openapi_client.model.loss_functions import LossFunctions
 from services.compiled_models import install_model_to_device
-from services.compiling import compile_model, list_compiled_models
-from services.devices import devices_get
+from services.compiling import compile_model, get_compiled_models
+from services.devices import devices_get, add_new_device
 from services.datasets import datasets_get
 from services.models import train_model, list_trained_models
-from services.bridges import add_new_bridge, bridges_get
+from services.bridges import add_new_bridge, bridges_get, get_installers
 from config import BACKEND_URL
 from services.observing import observe_device_on_bridge
 # Defining the host is optional and defaults to http://localhost
@@ -78,11 +78,11 @@ def compile(model_id: int):
     compile_model(configuration, model_id)
     
 @app.command()
-def compiled_models():
+def list_compiled_models():
     """
     List compiled models.
     """
-    list_compiled_models(configuration)
+    get_compiled_models(configuration)
     
 @app.command()
 def list_bridges():
@@ -111,6 +111,20 @@ def observe_model():
     Observe a model.
     """
     observe_device_on_bridge(configuration)
+    
+@app.command()
+def add_device():
+    """
+    Add a device.
+    """
+    add_new_device(configuration)
+
+@app.command()
+def list_installers():
+    """
+    List installers.
+    """
+    get_installers(configuration)
 
 if __name__ == "__main__":
     app()

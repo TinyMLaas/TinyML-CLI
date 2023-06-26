@@ -26,7 +26,7 @@ def compile_model(configuration, model_id):
     except openapi_client.ApiException as e:
         print("Exception when calling CompiledModelsApi->compile_model_compiled_models_models_model_id_post:")
 
-def list_compiled_models(configuration):
+def get_compiled_models(configuration):
     with openapi_client.ApiClient(configuration) as api_client:
 
         api_instance = compiled_models_api.CompiledModelsApi(api_client)
