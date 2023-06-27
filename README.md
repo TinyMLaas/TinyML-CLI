@@ -1,5 +1,51 @@
 # TinyML-CLI
 
+This is a command-line interface for the [TinyMLaaS](https://github.com/TinyMLaas) project.
+
+## Instructions for running the CLI
+
+Start by [cloning](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) this repository. Then setup and run CLI with the following steps.
+
+## Virtual environment
+
+Setup [venv](https://docs.python.org/3/library/venv.html) with:
+
+```
+python -m venv venv
+```
+
+Activate the virtual environment with:
+
+```
+source venv/bin/activate
+```
+
+## Dependencies
+
+Install project dependencies by running the following command inside the virtual environment:
+
+```
+pip install -r requirements.txt
+```
+
+## Usage
+
+Run [backend](https://github.com/TinyMLaas/TinyML-backend) and [bridge](https://github.com/TinyMLaas/TinyML-MCU).
+
+Create a .env file with BACKEND_URL in the project root. 
+
+For available commands run the command:
+
+```
+python3 tinyml_cli.py --help
+```
+
+Hint: For instructions and a list of required parameters, run --help after any command. For example:
+
+```
+python3 tinyml_cli.py list-datasets --help
+```
+
 ## CLI tool installation:
 
 Install OpenAPI Generator CLI. This is a package that is used to generate the CLI tool.
