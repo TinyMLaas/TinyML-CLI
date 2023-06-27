@@ -1,4 +1,4 @@
-# clitesti
+# TinyML-CLI
 
 ## CLI tool installation:
 
