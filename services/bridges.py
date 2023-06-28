@@ -46,7 +46,7 @@ def add_new_bridge(configuration):
             api_response = api_instance.add_bridge_bridges_post(
                 body=body,
             )
-            pprint(api_response)
+            pprint("[green]Bridge added succesfully.[/green]")
         except openapi_client.ApiException as e:
             print("Exception when calling BridgesApi->add_bridge_bridges_post: %s\n" % e)
             
